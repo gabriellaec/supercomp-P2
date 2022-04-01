@@ -24,12 +24,9 @@ struct item {
     vector<string> seq_b;
 };
 
-
 int m,n;
-
 int w(string a, string b);
 item busca_local(vector<string> a, vector<string> b, int n, int m);
-
 
 
 int main() {
@@ -37,10 +34,8 @@ int main() {
     vector<string> a;
     vector<string> b;
     
-
  // Lendo tamanho das sequências   
     cin >> n >> m;
-
 
 // Lendo sequências iniciais
     string base;
@@ -65,7 +60,6 @@ int main() {
         cout << el;
     }
     cout << endl;
-
 
     vector<int> scores;
     vector<string> melhor_seq, melhor_seq_b;
@@ -119,7 +113,10 @@ item busca_local(vector<string> a, vector<string> b, int n, int m){
     vector<string> sa,sb;
     vector<vector<string>> subs_sa;
 
-    uniform_int_distribution<int> distribution_k(1,m);
+    int k_max=m;
+    if (k_max>n)k_max=n;
+
+    uniform_int_distribution<int> distribution_k(1,k_max);
     uniform_int_distribution<int> distribution_p(1,P_MAX);
     
     int k,p;
@@ -196,4 +193,4 @@ item busca_local(vector<string> a, vector<string> b, int n, int m){
 // Para compilar: 
 
 // g++ -Wall -O3 p2-2.cpp -o p2-2
-// ./p2-p2 < dna.seq
+// ./p2-2 < dna.seq
